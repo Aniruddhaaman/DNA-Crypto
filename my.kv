@@ -1,0 +1,39 @@
+<MyLayout>
+    BoxLayout:
+        margin: (50)
+        orientation: "vertical"
+        size: root.width, root.height
+        padding: 30
+        spacing: 10
+
+        TextInput:
+            id: put
+            text: "Enter Text"
+            halign: "left"
+            font_size: 20
+            size_hint: (1, 15)
+        GridLayout:
+            cols:4
+
+            Button:
+                size_hint: (.1,.2)
+                font_size: 15
+                text: "Brows"
+                on_press: root.brows()
+
+            Button:
+                size_hint: (.1,.2)
+                font_size: 15
+                text: "Encrypt"
+                on_press: root.encrypt()
+            Button:
+                size_hint: (.1,.2)
+                font_size: 15
+                text: "Decrypt"
+            Button:
+                padding_left: 5
+                id: cancel
+                size_hint: (.1,.2)
+                font_size: 15
+                text: "Cancel"
+                on_press: root.clear()
