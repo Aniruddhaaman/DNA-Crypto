@@ -1,0 +1,102 @@
+WindowManager:
+    FirstWindow:
+    SecondWindow:
+
+
+<FirstWindow>:
+    name: "first"
+    BoxLayout:
+        margin: (50)
+        orientation: "vertical"
+        size: root.width, root.height
+        padding: 30
+        spacing: 10
+
+        TextInput:
+            id: key_put
+            font_size: 20
+            size_hint: (1, 1.5)
+
+        TextInput:
+            id: put
+            text: "Enter Text"
+            halign: "left"
+            font_size: 20
+            size_hint: (1, 15)
+        GridLayout:
+            cols:3
+
+
+
+            Button:
+                size_hint: (.1,.2)
+                font_size: 15
+                text: "Encrypt"
+                on_press: root.encrypt()
+            Button:
+                size_hint: (.1,.2)
+                font_size: 15
+                text: "Decrypt"
+                on_release:
+                    app.root.current = "second"
+                    root.manager.transition.direction = "left"
+
+
+            Button:
+                padding_left: 5
+                id: cancel
+                size_hint: (.1,.2)
+                font_size: 15
+                text: "Cancel"
+                on_press: root.clear()
+
+
+
+<SecondWindow>:
+    name: "second"
+    BoxLayout:
+        margin: (50)
+        orientation: "vertical"
+        size: root.width, root.height
+        padding: 30
+        spacing: 10
+
+        TextInput:
+            id: key_dec
+            font_size: 20
+            size_hint: (1, 1.5)
+
+        TextInput:
+            id: dec
+            font_size: 20
+            size_hint: (1, 15)
+        GridLayout:
+            cols:3
+
+
+
+
+            Button:
+                size_hint: (.1,.2)
+                font_size: 15
+                text: "Decrypt"
+                on_press: root.decrypt()
+
+            Button:
+                size_hint: (.1,.2)
+                font_size: 15
+                text: "Encrypt"
+                on_release:
+                    app.root.current = "first"
+                    root.manager.transition.direction = "right"
+
+
+
+
+            Button:
+                padding_left: 5
+                id: cancel
+                size_hint: (.1,.2)
+                font_size: 15
+                text: "Cancel"
+                on_press: root.clear()
